@@ -3,6 +3,15 @@ console.log('Starting notes.js');
 
 //console.log(module);
 const fs= require('fs');
+
+var fetchNotes =()=>{
+  try {
+    var notesString=fs.readFileSync('notes-data.json');
+    return JSON.parse(notesString);
+  } catch (e) {
+
+  }
+};
 var addNote =(title,body)=>{
 // console.log('Adding note',title,body);
 var notes =[];
@@ -10,12 +19,7 @@ var note ={
   title,
   body
 };
-try {
-  var notesString=fs.readFileSync('notes-data.json');
-  notes=JSON.parse(notesString);
-} catch (e) {
 
-}
 
 notes.push(note);
 fs.writeFileSync('notes-data.json',JSON.stringify(notes));
