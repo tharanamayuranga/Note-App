@@ -1,3 +1,4 @@
+
 console.log('Starting notes.js');
 
 //console.log(module);
@@ -9,8 +10,13 @@ var note ={
   title,
   body
 };
+try {
   var notesString=fs.readFileSync('notes-data.json');
   notes=JSON.parse(notesString);
+} catch (e) {
+
+}
+
 notes.push(note);
 fs.writeFileSync('notes-data.json',JSON.stringify(notes));
 
