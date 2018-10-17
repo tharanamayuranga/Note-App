@@ -9,7 +9,7 @@ var fetchNotes =()=>{
     var notesString=fs.readFileSync('notes-data.json');
     return JSON.parse(notesString);
   } catch (e) {
-
+    return [];
   }
 };
 var addNote =(title,body)=>{
