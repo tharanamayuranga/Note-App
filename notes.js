@@ -24,18 +24,9 @@ var note ={   //json object
   body
 };
 
-
-
-
-
-
-
-var duplicateNotes =notes.filter((note) =>{
-return note.title===title;
-saveNotes();
-});
+var duplicateNotes =notes.filter((note) => note.title===title);
 notes.push(note);
-
+saveNotes(notes);
 
 };
 var getAll =()=>{
