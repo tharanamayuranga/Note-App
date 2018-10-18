@@ -3,14 +3,6 @@ console.log('Starting notes.js');
 //console.log(module);
 const fs= require('fs');
 
-var addNote =(title,body)=>{
-// console.log('Adding note',title,body);
-var notes =[]; //array
-var note ={   //json object
-  title,
-  body
-};
-
 var fetchNotes =()=>{
   try {
     var notesString=fs.readFileSync('notes-data.json'); //if it is not "notes-data.json" file this doesn't read
@@ -21,17 +13,29 @@ var fetchNotes =()=>{
 };
 
 var saveNotes=(notes)=>{
-
+fs.writeFileSync('notes-data.json',JSON.stringify(notes));
 };
+
+var addNote =(title,body)=>{
+// console.log('Adding note',title,body);
+var notes =fetchNotes(); //array
+var note ={   //json object
+  title,
+  body
+};
+
+
+
+
 
 
 
 var duplicateNotes =notes.filter((note) =>{
 return note.title===title;
-
+saveNotes();
 });
 notes.push(note);
-fs.writeFileSync('notes-data.json',JSON.stringify(notes));
+
 
 };
 var getAll =()=>{
