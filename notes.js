@@ -14,7 +14,7 @@ var fetchNotes =()=>{
 };
 var addNote =(title,body)=>{
 // console.log('Adding note',title,body);
-var notes =[];
+var notes =;
 var note ={
   title,
   body
