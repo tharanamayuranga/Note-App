@@ -25,8 +25,12 @@ var note ={   //json object
 };
 
 var duplicateNotes =notes.filter((note) => note.title===title);
-notes.push(note);
-saveNotes(notes);
+
+if (duplicateNotes.length===0) {
+  notes.push(note);
+  saveNotes(notes);
+}
+
 
 };
 var getAll =()=>{
