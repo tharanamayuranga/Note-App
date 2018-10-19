@@ -30,6 +30,10 @@ if (duplicateNotes.length===0) {
   return note;
 }
 };
+
+
+
+
 var getAll =()=>{
 console.log("Getting All notes");
 };
@@ -38,7 +42,10 @@ var getNote=(title)=>{
   console.log("getting note",title);
 };
 var removeNote=(title)=>{
-  console.log("Removing note",title);
+var notes =fetchNotes();
+
+var filtteredNotes =notes.filter((note)=>note.title!=title);
+saveNotes(filtteredNotes);
 };
 module.exports={
 
