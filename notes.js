@@ -46,6 +46,8 @@ var notes =fetchNotes();
 
 var filtteredNotes =notes.filter((note)=>note.title!=title);
 saveNotes(filtteredNotes);
+
+return notes.length !=filtteredNotes.length;
 };
 module.exports={
 
